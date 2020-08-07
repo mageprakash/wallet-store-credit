@@ -49,6 +49,8 @@ class Dashboard extends Template
      */
     private $customerSession;
 
+    public $collection;
+
     public function __construct(
         Template\Context $context,
         CollectionFactory $collectionFactory,

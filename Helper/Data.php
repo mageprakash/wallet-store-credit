@@ -86,4 +86,8 @@ class Data extends AbstractHelper
     public function getCheckoutAppliedTitle(){
         return __("Applied %1  amount is %s",$this->getTitle());
     }
+
+    public function getCustomerAccountTabTitle(){
+        return __($this->getTitle());
+    }
 }

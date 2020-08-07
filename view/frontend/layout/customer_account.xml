@@ -12,7 +12,7 @@
             <block after="customer-account-navigation-account-edit-link" class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-wallet-link">
                 <arguments>
                     <argument name="path" xsi:type="string">wallet</argument>
-                    <argument name="label" xsi:type="string" translate="true">Wallet Credit &amp; Refunds</argument>
+                    <argument name="label" xsi:type="helper" helper="MagePrakash\Wallet\Helper\Data::getCustomerAccountTabTitle" ></argument>
                 </arguments>
             </block>
         </referenceBlock>

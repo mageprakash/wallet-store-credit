@@ -7,7 +7,7 @@
  *
  */
 ?>
-<h3><?= $block->escapeHtml('Wallet Balance:') . ' ' . $block->escapeHtml($block->getCustomerBalance()) ?></h3>
+<h3><?= $block->escapeHtml('Balance:') . ' ' . $block->escapeHtml($block->getCustomerBalance()) ?></h3>
 <?php
 if ($histories = $block->getCollection()->getItems()) : ?>
     <div class="table-wrapper orders-history">

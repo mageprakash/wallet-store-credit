@@ -19,19 +19,24 @@ use Magento\Framework\App\RequestInterface;
 class Index extends \Magento\Customer\Controller\AbstractAccount
 {
     /**
-     * @var Registry
-     */
-    private $registry;
-
-    /**
      * @var Session
      */
     private $customerSession;
 
-    public function __construct(Registry $registry, Context $context)
+    /**
+     * @var Session
+     */
+    private $walletData;    
+
+    public function __construct(
+        Context $context,
+        \Magento\Framework\View\Result\PageFactory $resultPageFactory,
+        \MagePrakash\Wallet\Helper\Data $walletData
+        )
     {
+        $this->walletData = $walletData;
+        $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
-        $this->registry = $registry;
     }
 
     /**
@@ -58,6 +63,9 @@ class Index extends \Magento\Customer\Controller\AbstractAccount
             $this->_redirect('customer/account/');
             return;
         }
-        return $this->resultFactory->create(\Magento\Framework\Controller\ResultFactory::TYPE_PAGE);
+
+        $resultPage = $this->resultPageFactory->create();
+        $resultPage->getConfig()->getTitle()->prepend($this->walletData->getTitle());
+        return $resultPage;
     }
 }
