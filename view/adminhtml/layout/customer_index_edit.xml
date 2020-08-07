@@ -11,7 +11,7 @@
     <body>
            <referenceBlock name="customer_form">
              <block class="MagePrakash\Wallet\Block\Adminhtml\Edit\Tab\Wallet" ifconfig="wallet/general/is_enabled" name="customer_edit_tab_compared">
-                <block class="MagePrakash\Wallet\Block\Adminhtml\Edit\Tab\View\Wallet" name="comparedproduct.edit.tab.compared" as="comparedproduct.edit.tab.compared"/>
+                <block class="MagePrakash\Wallet\Block\Adminhtml\Edit\Tab\View\Wallet" name="mageprakash.wallet.edit.tab" as="mageprakash.wallet.edit.tab"/>
             </block>
           </referenceBlock>
     </body>

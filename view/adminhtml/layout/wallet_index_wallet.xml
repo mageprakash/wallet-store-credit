@@ -10,6 +10,6 @@
  
 <layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/layout_generic.xsd">
     <container name="root" label="Root">
-        <block class="MagePrakash\Wallet\Block\Adminhtml\Edit\Tab\View\Wallet" name="comparedproduct.edit.tab.compared"/>
+        <block class="MagePrakash\Wallet\Block\Adminhtml\Edit\Tab\View\Wallet" name="mageprakash.wallet.edit.tab"/>
     </container>
 </layout>
