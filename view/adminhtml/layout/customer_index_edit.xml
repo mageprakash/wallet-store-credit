@@ -1,0 +1,18 @@
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+    xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+           <referenceBlock name="customer_form">
+             <block class="MagePrakash\Wallet\Block\Adminhtml\Edit\Tab\Wallet" ifconfig="wallet/general/is_enabled" name="customer_edit_tab_compared">
+                <block class="MagePrakash\Wallet\Block\Adminhtml\Edit\Tab\View\Wallet" name="comparedproduct.edit.tab.compared" as="comparedproduct.edit.tab.compared"/>
+            </block>
+          </referenceBlock>
+    </body>
+</page>

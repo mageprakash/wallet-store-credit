@@ -1,0 +1,76 @@
+<?php
+/**
+ * *
+ *  * @author MagePrakash Wallet
+ *  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+ *  * @package MagePrakash_Wallet
+ *
+ */
+?>
+<h3><?= $block->escapeHtml('Wallet Balance:') . ' ' . $block->escapeHtml($block->getCustomerBalance()) ?></h3>
+<?php
+if ($histories = $block->getCollection()->getItems()) : ?>
+    <div class="table-wrapper orders-history">
+        <table class="data table table-order-items wallet-history-table" id="my-orders-table">
+            <thead class="wallet-table-header">
+            <tr>
+                <th scope="col" class="col transaction-id"><?= $block->escapeHtml(__('Transaction Id')) ?></th>
+                <th scope="col" class="col date"><?= $block->escapeHtml(__('Date')) ?></th><!--  -->
+                <th scope="col" class="col total"><?= $block->escapeHtml(__('Change')) ?></th>
+                <th scope="col" class="col new-balance"><?= $block->escapeHtml(__('New Balance')) ?></th>
+                <th scope="col" class="col action"><?= $block->escapeHtml(__('Action')) ?></th>
+                <th scope="col" class="col action"><?= $block->escapeHtml(__('Comment')) ?></th>                
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+
+            foreach ($histories as $history) :
+            ?>
+                <tr>
+                    <td data-th="<?= $block->escapeHtml(__('Transaction Id')); ?>" class="col transaction-id">
+                        <?= $block->escapeHtml($history->getWalletHistoryId()); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Date')); ?>" class="col date">
+                        <?= $block->escapeHtml($block->formatDate($history->getCreatedAt())); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Change')); ?>" class="col amount amount-dir-<?= (int)$history->getIsDeduct(); ?>">
+                        <?= $history->getIsDeduct() ? '-' : '+' ?><?= $block->escapeHtml($history->getFormatDifference()); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('New Balance')); ?>" class="col new-balance">
+                        <?= $block->escapeHtml($history->getFormatWalletBalance()) ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('Action')); ?>" class="col status">
+                        <?= $block->escapeHtml($history->getSmallActionMessage()); ?>
+                    </td>
+                     <td data-th="<?= $block->escapeHtml(__('comment')); ?>" class="col status">
+                         <?php if ($history->getComment()) : ?>
+                        <div><b><?= $block->escapeHtml(__('Administrator\'s comment:')) ?> <?= $block->escapeHtml($history->getComment()); ?></b>
+                        </div>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($pager = $block->getPagerHtml()) : ?>
+        <div class="toolbar">
+            <div class="mpwallet-pager"><?= $pager; ?></div>
+        </div>
+    <?php endif; ?>
+<?php else : ?>
+    <div class="message info empty">
+        <span><?= $block->escapeHtml(__('You have no wallet balance history.')); ?></span>
+    </div>
+<?php endif ?>
+
+<style>
+    .wallet-history-table .amount-dir-1{
+        color: #b71c1c;
+    }
+
+    .wallet-history-table .amount-dir-0{
+        color: #0a820b;
+    }
+</style>

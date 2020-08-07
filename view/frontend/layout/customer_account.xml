@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <block after="customer-account-navigation-account-edit-link" class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-wallet-link">
+                <arguments>
+                    <argument name="path" xsi:type="string">wallet</argument>
+                    <argument name="label" xsi:type="string" translate="true">Wallet Credit &amp; Refunds</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

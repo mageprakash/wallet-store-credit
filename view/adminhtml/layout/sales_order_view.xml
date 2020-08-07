@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="order_totals">
+            <block class="MagePrakash\Wallet\Block\Adminhtml\Total" after="-" name="wallet_total" template="MagePrakash_Wallet::total.phtml" />
+            <block class="MagePrakash\Wallet\Block\Adminhtml\Total" after="-" name="wallet_total_refunded" template="MagePrakash_Wallet::total_refunded.phtml">
+                <action method="setLabel">
+                    <argument name="label"  xsi:type="helper" helper="MagePrakash\Wallet\Helper\Data::getXmlTitle" ></argument>
+                </action>
+                <action method="setStrong">
+                    <argument name="strong" xsi:type="boolean">true</argument>
+                </action>
+                <action method="setAmountField">
+                    <argument name="amountField" xsi:type="string">wallet_refunded_amount</argument>
+                </action>
+                <action method="setMinus">
+                    <argument name="minus" xsi:type="boolean">false</argument>
+                </action>
+                <action method="setBaseAmountField">
+                    <argument name="baseAmountField" xsi:type="string">wallet_refunded_base_amount</argument>
+                </action>
+                <action method="setAfter">
+                    <argument name="after" xsi:type="string">refunded</argument>
+                </action>
+                <action method="setAfterCondition">
+                    <argument name="afterCondition" xsi:type="string">refunded</argument>
+                </action>
+                <action method="setDisplayArea">
+                    <argument name="displayArea" xsi:type="string">footer</argument>
+                </action>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

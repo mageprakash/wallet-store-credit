@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="creditmemo_totals">
+            <block class="MagePrakash\Wallet\Block\Total" name="mpwallet" cacheable="false" after="-">
+                <action method="setLabel">
+                    <argument name="label" xsi:type="string">Wallet Credit Refunded</argument>
+                </action>
+                <action method="setStrong">
+                    <argument name="strong" xsi:type="boolean">true</argument>
+                </action>
+                <action method="setMinus">
+                    <argument name="minus" xsi:type="boolean">false</argument>
+                </action>
+                <action method="setAfter">
+                    <argument name="after" xsi:type="string">grand_total</argument>
+                </action>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

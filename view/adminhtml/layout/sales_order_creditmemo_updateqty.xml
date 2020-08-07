@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="submit_before">
+            <block name="wallet.return" class="MagePrakash\Wallet\Block\Adminhtml\CreditMemo\NewReturn" ifconfig="wallet/general/is_enabled" template="MagePrakash_Wallet::creditmemo/new.phtml"  />
+        </referenceContainer>
+        <referenceBlock name="creditmemo_totals">
+            <block class="MagePrakash\Wallet\Block\Adminhtml\Total" after="-" name="wallet_total" template="MagePrakash_Wallet::total.phtml" />
+        </referenceBlock>
+    </body>
+</page>

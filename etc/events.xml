@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_model_service_quote_submit_before">
+        <observer instance="MagePrakash\Wallet\Observer\ConvertQuoteToOrder" name="ConvertQuoteToOrderWallet"/>
+    </event>
+
+    <event name="order_cancel_after">
+        <observer instance="MagePrakash\Wallet\Observer\ReturnWallet" name="ReturnToWallet"/>
+    </event>
+    <event name="payment_cart_collect_items_and_amounts">
+        <observer instance="MagePrakash\Wallet\Observer\RemoveWalletBalanceFromPayment" name="CheatPayment" />
+    </event>
+    <event name="sales_order_load_after">
+        <observer instance="MagePrakash\Wallet\Observer\IsCanCreditMemo" name="CanCreditMemo"/>
+    </event>
+
+     <event name="adminhtml_sales_order_creditmemo_register_before">
+        <observer name="store_credit_creditmemo_register" instance="MagePrakash\Wallet\Observer\SetRefundToWallet"/>
+    </event>
+    <!-- <event name="sales_order_creditmemo_refund">
+        <observer name="store_credit_refund_amount" instance="MagePrakash\Wallet\Observer\Refund" />
+    </event> -->
+</config>

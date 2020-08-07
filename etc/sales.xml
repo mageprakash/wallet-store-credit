@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Sales:etc/sales.xsd">
+    <section name="quote">
+        <group name="totals">
+            <item name="wallet" instance="MagePrakash\Wallet\Model\Total\Quote\Wallet" sort_order="800"/>
+        </group>
+    </section>
+    <section name="order_invoice">
+        <group name="totals">
+            <item name="wallet" instance="MagePrakash\Wallet\Model\Total\Invoice\Wallet" sort_order="600"/>
+        </group>
+    </section>
+    <section name="order_creditmemo">
+        <group name="totals">
+            <item name="wallet" instance="MagePrakash\Wallet\Model\Total\CreditMemo\Wallet" sort_order="800"/>
+        </group>
+    </section>
+</config>

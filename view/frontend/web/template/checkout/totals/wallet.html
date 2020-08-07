@@ -1,0 +1,14 @@
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+
+<!-- ko if: isAvailable() -->
+<tr class="totals balance">
+    <th class="mark" scope="row" data-bind="html: getWalletTitle()"></th>
+    <td class="amount"><span class="price" data-bind="text: getWalletValueFormat()"></span></td>
+</tr>
+<!-- /ko -->

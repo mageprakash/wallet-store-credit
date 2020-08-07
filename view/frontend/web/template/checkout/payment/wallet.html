@@ -1,0 +1,52 @@
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+
+<!-- ko if: isVisible() -->
+<div class="payment-option _collapsible opc-payment-additional wallet-balance-add" data-bind="mageInit: {'collapsible':{'openedState': '_active'}}">
+    <div class="payment-option-title field choice" data-role="title">
+        <span class="action action-toggle" id="block-reward-heading" role="heading" aria-level="2" data-bind="'html':getTabTitle()">
+        </span>
+    </div>
+
+    <div class="payment-option-content wallet-balance-container" data-role="content" aria-labelledby="block-reward-heading">
+
+        <div class="walletLeft" data-role="title" data-bind="'html':getTitle()">
+        </div>
+        <div class="payment-option-inner">
+            <!-- ko ifnot: isApplied() -->
+            <div class="field">
+                <div class="control">
+                    <input class="input-text"
+                           type="text"
+                           id="wallet_amount"
+                           data-validate="{'required-entry':true}"
+                           data-bind="value: amount, attr:{placeholder: inputPlaceholder()}" />
+                </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko if: isApplied() -->
+            <div><span data-bind="html: getAppliedTitle()"></span></div>
+            <!-- /ko -->
+        </div>
+        <div class="actions-toolbar wallet-actions">
+            <div class="primary">
+                <!-- ko ifnot: isApplied() -->
+                <button class="action action-apply" type="submit" data-bind="'value': $t('Apply'), click: applyWallet">
+                    <span><!-- ko i18n: 'Apply'--><!-- /ko --></span>
+                </button>
+                <!-- /ko -->
+                <!-- ko if: isApplied() -->
+                <button class="action action-cancel" type="submit" data-bind="'value': $t('Cancel'), click: cancelWallet">
+                    <span><!-- ko i18n: 'Cancel'--><!-- /ko --></span>
+                </button>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /ko -->

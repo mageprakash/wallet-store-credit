@@ -1,0 +1,39 @@
+<?php
+/**
+ * *
+ *  * @author MagePrakash Wallet
+ *  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+ *  * @package MagePrakash_Wallet
+ *
+ */
+?>
+    <div class="admin__field admin__field-option field-refund-to-store-credit">
+        <input type="checkbox" class="admin__control-checkbox"
+               id="creditmemo_refund_to_wallet_enable"
+               name="creditmemo[refund_to_wallet_enable]"
+               value="1"
+               />
+        <label for="creditmemo_refund_to_wallet_enable" class="admin__field-label">
+            <span><?php echo $block->escapeHtml(__('Refund to Wallet')) ?></span>
+        </label>
+        <input type="text" class="input-text admin__control-text not-negative-amount"
+               id="creditmemo_refund_to_wallet"
+               name="creditmemo[refund_to_store_credit]"
+               value="<?php /* @noEscape */ echo $block->getMaxWalletBalance() ?>"/>
+        <script>
+            require(['prototype'], function() {
+                //<![CDATA[
+                toggleRefundedToWallet = function() {
+                    if ($('creditmemo_refund_to_wallet_enable').checked) {
+                        $('creditmemo_refund_to_wallet').disabled = false;
+                    } else {
+                        $('creditmemo_refund_to_wallet').disabled = true;
+                    }
+                }
+                Event.observe($('creditmemo_refund_to_wallet_enable'), 'change', toggleRefundedToWallet);
+                toggleRefundedToWallet();
+                //]]>
+            });
+        </script>
+    </div>
+

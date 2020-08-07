@@ -1,0 +1,18 @@
+<?php
+/**
+ * *
+ *  * @author MagePrakash Wallet
+ *  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+ *  * @package MagePrakash_Wallet
+ *
+ */
+?>
+<?php if ($block->getWalletBalance()): ?>
+    <tr>
+        <td class="label"><?= $block->escapeHtml($block->getTitle()); ?>  </td>
+        <td>
+            <?= $block->getFormatWalletBalance(); ?>
+        </td>
+    </tr>
+
+<?php endif; ?>

@@ -1,0 +1,32 @@
+<?php
+/**
+ * *
+ *  * @author MagePrakash Wallet
+ *  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+ *  * @package MagePrakash_Wallet
+ *
+ */
+?>
+
+<?php if ($block->canUseWalletBalance()) : ?>
+    <div class="field choice admin__field admin__field-option">
+        <input id="use_to_wallet"
+               class="admin__control-checkbox"
+               name="use_to_wallet"
+               value="1"
+               type="checkbox"
+               <?= ($block->isUsedWalletBalance() ? 'checked' : '' ) ?>
+            />
+        <label for="use_to_wallet" class="admin__field-label">
+            <span>
+                <?= $block->escapeHtml(__('Use Wallet Balance')) ?>
+                <?= $block->escapeHtml($block->getCurrencySymbol()) ?>
+            </span>
+        </label>
+        <input type="hidden" id="current_wallet_balance" value="<?= (float)$block->getCurrentWalletBalance(); ?>" />
+        <input type="text" name="wallet_amount"
+               value="<?= (float)$block->getCurrentWalletBalance(); ?>"
+               class="input-text admin__control-text"
+               id="wallet_amount" ?> />
+    </div>
+<?php endif; ?>

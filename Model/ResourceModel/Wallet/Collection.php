@@ -1,0 +1,27 @@
+<?php
+/**
+ * *
+ *  * @author MagePrakash Wallet
+ *  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+ *  * @package MagePrakash_Wallet
+ *
+ */
+
+namespace MagePrakash\Wallet\Model\ResourceModel\Wallet;
+
+class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
+{
+
+    /**
+     * Define resource model
+     *
+     * @return void
+     */
+    protected function _construct()
+    {
+        $this->_init(
+            \MagePrakash\Wallet\Model\Wallet::class,
+            \MagePrakash\Wallet\Model\ResourceModel\Wallet::class
+        );
+    }
+}

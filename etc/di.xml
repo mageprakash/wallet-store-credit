@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="MagePrakash\Wallet\Api\WalletRepositoryInterface" type="MagePrakash\Wallet\Model\WalletRepository"/>
+	<preference for="MagePrakash\Wallet\Api\Data\WalletInterface" type="MagePrakash\Wallet\Model\Data\Wallet"/>
+	<preference for="MagePrakash\Wallet\Api\Data\WalletSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<preference for="MagePrakash\Wallet\Api\WalletHistoryRepositoryInterface" type="MagePrakash\Wallet\Model\WalletHistoryRepository"/>
+	<preference for="MagePrakash\Wallet\Api\Data\WalletHistoryInterface" type="MagePrakash\Wallet\Model\Data\WalletHistory"/>
+	<preference for="MagePrakash\Wallet\Api\Data\WalletHistorySearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+
+
+	<preference for="MagePrakash\Wallet\Api\BalanceManagementInterface" type="MagePrakash\Wallet\Model\BalanceManagement"/>
+
+ 	<type name="Magento\Quote\Model\Quote">
+        <plugin name="MagePrakashResetWalletBalance" type="MagePrakash\Wallet\Plugin\ResetWalletBalanceAfterItemDelete"/>
+    </type>
+	<!--  <type name ="Magento\Quote\Model\Quote\TotalsCollector">
+        <plugin name="quoteCustomerSegmentUpdater" type="MagePrakash\Wallet\Model\Plugin\TotalsCollector" />
+    </type> -->
+</config>

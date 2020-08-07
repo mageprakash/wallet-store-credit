@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+       <template id="wallet_email_customer_notification_template"
+       	label="Wallet Credit/Debit  Customer Notification"
+       	file="customer_notification_template.html"
+       	type="html" 
+       	module="MagePrakash_Wallet"
+       	area="frontend"/>
+</config>

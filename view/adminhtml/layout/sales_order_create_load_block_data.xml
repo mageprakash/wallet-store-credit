@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * @author MagePrakash Wallet
+  ~  * @copyright Copyright (c) 2020 MagePrakash (https://www.mageprakash.com)
+  ~  * @package MagePrakash_Wallet
+  ~  */
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="billing_method">
+            <block class="MagePrakash\Wallet\Block\Adminhtml\WalletBalanceBillingMethod" template="MagePrakash_Wallet::order/payment.phtml" name="wallet-billing-method" before="-" />
+        </referenceBlock>
+    </body>
+</page>
